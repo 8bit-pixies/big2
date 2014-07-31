@@ -1,0 +1,48 @@
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<template name='play'>
+  {{> signupLogin}}
+  {{#if currentUser}}
+    {{> status }}
+    {{> table}}
+    {{#if inProgress}} {{#if yourTurn}}
+      {{> turn}}
+    {{/if}} {{/if}}
+    {{> hand}}
+  
+  {{/if}}
+</template>
+
+<template name = 'status'>
+  <p> <a href='/'>&larr; Home </a></p>
+  <h2> Game between you and {{otherPlayer}} {{#if inProgress}} {{#if yourTurn}} (Your Turn) {{/if}} {{/if}}</h2>
+</template>
+
+<template name='table'>
+  <div id = 'table'>
+    <h2> Table </h2>
+    {{#each table}}
+      <div class='card {{suit}}'>
+        <div>{{name}}{{getSuit suit}}</div>
+      </div>
+    {{/each}}
+  </div>
+</template>
+
+<template name='hand'>
+  <h2> Hand </h2>
+  <div class='hand'>    
+    {{#each player.hand}}
+    <div class='card {{suit}}'>
+        {{name}}{{getSuit suit}}
+    </div>
+    {{/each}}
+  </div>
+</template>
+
+<template name='turn'>
+  <h2> Play </h2>
+  <!-- insert some code here so that players can pass (no cards placed) or play (single, double, triple, or 5 card-->
+</template>
